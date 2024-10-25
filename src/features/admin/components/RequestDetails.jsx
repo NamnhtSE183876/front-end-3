@@ -21,13 +21,14 @@ const RequestDetails = ({ request, onBack, staffList, fetchRequest }) => {
   const [offerAuctionType, setOfferAuctionType] = useState(null);
 
   useEffect(() => {
-    if (request) {
-      fetchRequest();
-      console.log("Request Object:", request);
+    if (!request) {
+      fetchRequest(); // Chỉ gọi khi `request` chưa tồn tại
+    } else {
       setOfferPrice(request.price);
       setOfferAuctionType(request.auctionTypeName);
     }
-  }, []);
+  }, []); // Chạy một lần khi component render
+  
 
   if (!request) return <p>No request selected.</p>;
 
