@@ -27,7 +27,7 @@ const RequestDetails = ({ request, onBack, staffList, fetchRequest }) => {
       setOfferPrice(request.price);
       setOfferAuctionType(request.auctionTypeName);
     }
-  }, [request]);
+  }, []);
 
   if (!request) return <p>No request selected.</p>;
 
